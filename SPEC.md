@@ -1,8 +1,8 @@
-# SPEC.md — PageGoblin by Sayu
+# SPEC.md — PageGoblin by Sayuru
 
 ## Product identity
 
-**Product name:** PageGoblin by Sayu  
+**Product name:** PageGoblin 
 **Publisher:** Sayu personal publisher account  
 **Product type:** Chrome extension + full web app  
 **Web app domain:** `pagegoblin.org`  
