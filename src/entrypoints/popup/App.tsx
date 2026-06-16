@@ -1,8 +1,8 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import type { PageSignals, AnalysisResult, PageRisk } from "@/lib/analysis/types";
-import { computeCategoryScores, computeGoblinScore, generateComplaints, generateFixes, getBiggestCrime } from "@/lib/analysis/scoring";
-import { pickVerdict, buildSummary } from "@/lib/analysis/roast-copy";
+import { computeCategoryScores, computeGoblinScore, generateComplaints, generateFixes } from "@/lib/analysis/scoring";
+import { pickBiggestCrime, pickVerdict, buildSummary } from "@/lib/analysis/roast-copy";
 import { normalizePageUrl, detectPageRisk } from "@/lib/analysis/signals";
 import type { ExtractResponse } from "@/lib/messaging";
 import { addRecentRoast } from "@/lib/storage";
@@ -20,7 +20,7 @@ function runAnalysis(signals: PageSignals): AnalysisResult {
   const goblinScore = computeGoblinScore(categoryScores);
   const goblinComplaints = generateComplaints(signals, categoryScores);
   const actuallyUsefulFixes = generateFixes(signals, categoryScores);
-  const biggestCrime = getBiggestCrime(goblinComplaints);
+  const biggestCrime = pickBiggestCrime(goblinComplaints);
   const verdict = pickVerdict(goblinScore);
   const warnings = detectPageRisk(url);
 
