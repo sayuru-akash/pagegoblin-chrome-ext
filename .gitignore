@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# wxt build output
+.output/
+.wxt/
+
+# os files
+.DS_Store
+
+# env
+.env
+.env.local
+
+# editor
+.vscode/
+.idea/
